@@ -114,10 +114,11 @@ class PredictionIOClient extends Client
      * @param string|array                              $uri     Resource URI
      * @param array|Collection                          $headers HTTP headers
      * @param string|resource|array|EntityBodyInterface $body    Entity body of request (POST/PUT) or response (GET)
+     * @param array                                     $options Array of options to apply to the request
      *
      * @return RequestInterface
      */
-    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null)
+    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null, array $options = array())
     {
         if (is_array($body)) {
             $body['pio_appkey'] = $this->getConfig()->get("appkey");
